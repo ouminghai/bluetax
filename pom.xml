@@ -40,6 +40,13 @@
 
     <dependencies>
 
+        <!--共用模块-->
+        <dependency>
+            <groupId>com.jmts</groupId>
+            <artifactId>bluetax-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!--spring核心包-->
         <dependency>
             <groupId>org.springframework</groupId>
