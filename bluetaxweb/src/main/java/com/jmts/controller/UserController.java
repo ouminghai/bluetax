@@ -26,9 +26,10 @@ public class UserController {
     @RequestMapping(value = "/getUserById", method = {RequestMethod.POST, RequestMethod.GET})
     public String getUserById(HttpServletRequest request, Model model) {
         //参数
-        Integer userId = StringUtils.notNull(request.getParameter("userId")) ? Integer.parseInt(request.getParameter("userId")) : 1;
-        User user = userService.getUserById(userId);
-        model.addAttribute("user", user);
+       /* Integer userId = StringUtils.notNull(request.getParameter("userId")) ? Integer.parseInt(request.getParameter("userId")) : 1;
+        User user = userService.getUserById(userId);*/
+        /*model.addAttribute("user", user);*/
         return "test";
     }
+
 }
