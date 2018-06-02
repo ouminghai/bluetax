@@ -2,6 +2,7 @@ package com.jmts.controller;
 
 import com.jmts.common.utils.StringUtils;
 import com.jmts.pojo.User;
+
 import com.jmts.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,9 +27,9 @@ public class UserController {
     @RequestMapping(value = "/getUserById", method = {RequestMethod.POST, RequestMethod.GET})
     public String getUserById(HttpServletRequest request, Model model) {
         //参数
-       /* Integer userId = StringUtils.notNull(request.getParameter("userId")) ? Integer.parseInt(request.getParameter("userId")) : 1;
-        User user = userService.getUserById(userId);*/
-        /*model.addAttribute("user", user);*/
+        Integer userId = StringUtils.notNull(request.getParameter("userId")) ? Integer.parseInt(request.getParameter("userId")) : 1;
+        User user = userService.getUserById(userId);
+        model.addAttribute("user", user);
         return "test";
     }
 
