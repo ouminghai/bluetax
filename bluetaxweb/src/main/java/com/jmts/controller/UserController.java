@@ -4,6 +4,7 @@ import com.jmts.common.utils.StringUtils;
 import com.jmts.pojo.User;
 
 import com.jmts.service.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class UserController {
+
+    private static final Logger log = Logger.getLogger(UserController.class);
 
     @Autowired
     UserService userService;
@@ -29,8 +32,15 @@ public class UserController {
         //参数
         Integer userId = StringUtils.notNull(request.getParameter("userId")) ? Integer.parseInt(request.getParameter("userId")) : 1;
         User user = userService.getUserById(userId);
+
+        log.info(userService);
+
         model.addAttribute("user", user);
-        return "test";
+        return "WEB-INF/test";
     }
+
+
+
+
 
 }
