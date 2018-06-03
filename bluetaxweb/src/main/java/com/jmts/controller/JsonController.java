@@ -36,7 +36,8 @@ public class JsonController {
 
 
 
-    @RequestMapping("write")
+    //显示配置返回json格式
+    @RequestMapping(value="write",produces={"application/json; charset=UTF-8"})
     @ResponseBody
     public Object write(
 

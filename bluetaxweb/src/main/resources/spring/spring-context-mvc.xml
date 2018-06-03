@@ -22,6 +22,7 @@
 
 
 
+
     <!-- 设置支持multi formdata-->
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -30,7 +31,9 @@
     </bean>
 
 
-    <!-- Start: 配置json消息转换器 & 参数解析-->
+
+
+    <!-- Start: 配置json 日期格式 -->
     <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper">
         <property name="dateFormat">
             <bean class="java.text.SimpleDateFormat">
@@ -38,6 +41,31 @@
             </bean>
         </property>
     </bean>
+
+
+
+    <!-- 字段类型转换器 -->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+
+
+
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="conversionService2" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+
+        <property name="formatters">
+            <list>
+
+            </list>
+        </property>
+        
+    </bean>
+
 
     <!--JSON数据转换-->
     <mvc:annotation-driven>
@@ -81,11 +109,6 @@
     <!--启用该标签代表 spring mvc 不拦截css、js、jpg等相关的静态资源-->
     <mvc:default-servlet-handler/>
 
-
-    <!-- End: 配置json消息转换器 & 参数解析 -->
-
-    <!-- 使用了<url-pattern>/</url-pattern>,所以要对静态资源进行处理 -->
-    <mvc:default-servlet-handler/>
 
     <!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
     <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:order="1">
