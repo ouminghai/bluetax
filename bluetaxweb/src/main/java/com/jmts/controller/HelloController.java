@@ -10,8 +10,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 @Controller
+@RequestMapping("hello")
 public class HelloController {
 
     private static final Logger log = Logger.getLogger(HelloController.class);
@@ -30,6 +32,15 @@ public class HelloController {
 
         return modelAndView;
     }
+
+
+    @RequestMapping("/testmodel")
+    public void testview(Map<String,Object> map){
+
+        map.put("name","ouminghai3");
+
+    }
+
 
 }
 

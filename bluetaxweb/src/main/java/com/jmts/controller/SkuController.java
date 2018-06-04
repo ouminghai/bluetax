@@ -46,7 +46,7 @@ public class SkuController {
     }
 
     @ModelAttribute("loginname")
-    public User userModel3(@RequestParam("loginname") String loginname,@RequestParam("password")String password){
+    public User userModel3(@RequestParam("loginname") String loginname , @RequestParam("password")String password){
 
         log.info("userModel");
 
